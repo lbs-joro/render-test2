@@ -1,14 +1,19 @@
 const mysql = require("mysql2");
 const express = require("express");
+const fs = require("fs");
 
 const app = express();
 
 const conn = mysql.createConnection({
-    host: 'sql.freedb.tech',
-    password:'2$sZHGh8aXRKPrp',
-    user: 'freedb_johan-admin2',
-    database:'freedb_testfreedb',
+    host: 'mysql-375594f0-ga-3701.b.aivencloud.com',
+    password:process.env.db_pass,
+    user: 'avnadmin',
+    database:'defaultdb',
+    port:13188,
+    ssl: {ca: fs.readFileSync(__dirname + '/mysql-ca.crt')}
 });
+
+
 
 
 app.get("/", (req,res)=>{
