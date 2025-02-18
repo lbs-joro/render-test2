@@ -16,3 +16,5 @@ app.get("/", (req,res)=>{
         res.json(result[0]);
     })
 });
+
+app.listen(3000);
